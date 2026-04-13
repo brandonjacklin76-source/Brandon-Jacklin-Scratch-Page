@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Nation Builder game embedded in the scratch app page." />
+        <meta name="author" content="Brandon Jacklin" />
+        <title>Nation Builder</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Custom Google font-->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body class="d-flex flex-column h-100">
+        <main class="flex-shrink-0">
+            <!-- Navigation-->
+            <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+                <div class="container px-5">
+                    <a class="navbar-brand" href="index.html"><span class="fw-bolder text-primary">Brandon Jacklin</span></a>
+                    <div class="d-flex ms-auto">
+                        <a class="btn btn-outline-primary" href="index.html">Back to Home</a>
+                        <a class="btn btn-outline-secondary ms-2" href="resume.html">Resume</a>
+                        <a class="btn btn-outline-success ms-2" href="contact.html">Contact</a>
+                        <a class="btn btn-outline-info ms-2" href="scratch.html">Scratch</a>
+                    </div>
+                </div>
+            </nav>
+            <!-- Game content -->
+            <section class="py-5">
+                <div class="container px-5">
+                    <div class="text-center mb-4">
+                        <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Nation Builder</span></h1>
+                        <p class="lead fw-light text-muted">Buy, defend, and grow your trade empire.</p>
+                    </div>
+                    <div class="card shadow rounded-4 p-4 mb-4">
+                        <h5 class="fw-bolder mb-3">How to Play</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><strong>Trade:</strong> Buy goods when prices are low, sell when high. Watch prices fluctuate each turn.</li>
+                            <li class="mb-2"><strong>Build Cities:</strong> Click on green plains on the map to build cities (costs 5 grain, 2 textiles, 1 spice).</li>
+                            <li class="mb-2"><strong>Grow Cities:</strong> Click on cities to upgrade them (increasing costs). Higher levels produce more income.</li>
+                            <li class="mb-2"><strong>Manage Population:</strong> Cities need grain to grow population. Population produces income but consumes food.</li>
+                            <li class="mb-2"><strong>Hire Knights:</strong> Buy knights for defense. Each knight reduces attack damage by 5. With 20+ knights, attacks are completely repelled.</li>
+                            <li class="mb-2"><strong>Events:</strong> Every 10 turns: economic depression (halve prices if &lt;3 cities). Every 15 turns: enemy attack (damage reduced by cities + knights).</li>
+                            <li class="mb-2"><strong>Goal:</strong> Build a thriving empire! Balance trade, resources, city management, and defense.</li>
+                        </ul>
+                    </div>
+                    <div class="row gx-5">
+                        <div class="col-lg-4 mb-4">
+                            <div class="card shadow rounded-4 p-3">
+                                <h5 class="fw-bolder">Stats</h5>
+                                <div class="mb-2">Money: <strong id="stat-money">$0</strong></div>
+                                <div class="mb-2">Turn: <strong id="stat-turn">0</strong></div>
+                                <div class="mb-2">Cities Owned: <strong id="stat-cities">0</strong></div>
+                                <div class="mb-2">Total Population: <strong id="stat-population">0</strong></div>
+                                <hr />
+                                <h6 class="fw-bolder">Inventory</h6>
+                                <ul class="list-group" id="inventory-list"></ul>
+                                <hr />
+                                <button id="btn-next" class="btn btn-primary mt-3">Next Turn</button>
+                                <button id="btn-reset" class="btn btn-outline-secondary mt-3 ms-2">Reset</button>
+                            </div>
+                        </div>
+                        <div class="col-lg-8 mb-4">
+                            <div class="card shadow rounded-4 p-3">
+                                <h5 class="fw-bolder">Market</h5>
+                                <div class="row gx-3">
+                                    <div class="col-md-7">
+                                        <div id="market-list"></div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <h6 class="fw-bolder">Map  build cities</h6>
+                                        <canvas id="map" style="border:1px solid #ccc; margin-bottom:8px; width:100%; height:320px;"></canvas>
+                                        <div class="small text-muted">Build cost: <span id="build-cost"></span></div>
+                                    </div>
+                                </div>
+                                <hr />
+                                <h6 class="fw-bolder">Log</h6>
+                                <div id="game-log" style="height:160px; overflow:auto; background:#f8f9fa; padding:8px; border-radius:6px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <!-- Game logic -->
+        <script src="js/game.js"></script>
+    </body>
+</html>
